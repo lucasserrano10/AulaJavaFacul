@@ -1,4 +1,4 @@
-package aulasJavaFiap.aula1.dominio;
+package aulasJavaFiap.aula1.Projeto1GerenciamentoEscolar.dominio;
 
 public class Professor {
     private String nome;

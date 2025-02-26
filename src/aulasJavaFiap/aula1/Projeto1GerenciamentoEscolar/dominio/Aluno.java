@@ -1,4 +1,4 @@
-package aulasJavaFiap.aula1.dominio;
+package aulasJavaFiap.aula1.Projeto1GerenciamentoEscolar.dominio;
 
 import java.util.UUID;
 
@@ -7,7 +7,7 @@ public class Aluno {
     private String id;
     private String curso;
 
-    public Aluno(String nome, String id, String curso) {
+    public Aluno(String nome, String curso) {
         this.nome = nome;
         this.id = UUID.randomUUID().toString();
         this.curso = curso;
