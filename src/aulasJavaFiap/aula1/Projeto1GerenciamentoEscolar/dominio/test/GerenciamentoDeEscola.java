@@ -26,10 +26,10 @@ public class GerenciamentoDeEscola {
             System.out.println("----------------------------------");
             System.out.println("Olá, Bem vindo ao ManagerSchool");
             System.out.println("----------------------------------");
-            System.out.println(" 1. Cadastrar Aluno \n 2.Cadastrar Professor \n 3. Listar Alunos \n 4. Listar Professores \n 5. Alterar nome aluno por ID \n 6. Remover Aluno \n 7. Remover Professor \n 8. Procurar Aluno por Nome \n 9.Fazer Chamada \n 10. Sair");
+            System.out.println(" 1. Cadastrar Aluno \n 2.Cadastrar Professor \n 3. Listar Alunos \n 4. Listar Professores \n 5. Alterar nome aluno por ID \n 6. Remover Aluno \n 7. Remover Professor \n 8. Procurar Aluno por Nome  \n 9. Procurar Professor por Nome \n 10.Fazer Chamada \n 11. Sair");
             System.out.print("Escolha uma opção : ");
             int opcao = sc.nextInt();
-            if(opcao == 10){
+            if(opcao == 11){
                 System.out.println("----------------------------------");
                 System.out.println("Obrigado por usar o ManagerSchool");
                 System.out.println("----------------------------------");
@@ -116,10 +116,30 @@ public class GerenciamentoDeEscola {
                         if(nomeAlunoProcurar.isEmpty()){
                             System.out.println("Não foi possivel concluir !");
                         }else{
-                            gerenciamento.procurarAlunoPorNome(nomeAlunoProcurar,alunos);
+                            Aluno aluno = gerenciamento.procurarAlunoPorNome(nomeAlunoProcurar,alunos);
+                            if(aluno != null){
+                                System.out.println(aluno);
+                            }else{
+                                System.out.println("Nenhum aluno encontrado !");
+                            }
                         }
                         break;
                     case 9:
+                        System.out.println("Procurar Professor por Nome");
+                        System.out.println("----------------------------------");
+                        String nomeProfessorProcurar = obterEntrada("Digite o nome do professor para ser procurado: ");
+                        if(nomeProfessorProcurar.isEmpty()){
+                            System.out.println("Não foi possivel concluir !");
+                        }else{
+                            Professor professor = gerenciamento.procurarProfessorPorNome(nomeProfessorProcurar,professores);
+                            if(professor != null){
+                                System.out.println(professor);
+                            }else{
+                                System.out.println("Nenhum aluno encontrado !");
+                            }
+                        }
+                        break;
+                    case 10:
                         System.out.println("Fazer Chamada");
                         System.out.println("----------------------------------");
                         gerenciamento.chamadaAlunos(alunos);
@@ -129,4 +149,6 @@ public class GerenciamentoDeEscola {
         }
 
     }
+
+
 }

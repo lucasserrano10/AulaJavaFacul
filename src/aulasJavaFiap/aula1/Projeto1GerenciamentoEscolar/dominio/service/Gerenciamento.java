@@ -30,12 +30,22 @@ public class Gerenciamento {
         }
     }
 
-    public Aluno procurarAlunoPorNome(String nome, List<Aluno> alunos) {
-        return alunos.stream()
-                .filter(aluno -> aluno.getNome().equalsIgnoreCase(nome))
+        public Aluno procurarAlunoPorNome(String nome, List<Aluno> alunos) {
+            return alunos.stream()
+                    .filter(aluno -> aluno.getNome().equalsIgnoreCase(nome))
+                    .findFirst()
+                    .orElseGet(() -> {
+                        System.out.println("Nenhum aluno encontrado com o nome: " + nome);
+                        return null;
+                    });
+        }
+
+    public Professor procurarProfessorPorNome(String nome, List<Professor> professores) {
+        return professores.stream()
+                .filter(professor -> professor.getNome().equalsIgnoreCase(nome))
                 .findFirst()
                 .orElseGet(() -> {
-                    System.out.println("Nenhum aluno encontrado com o nome: " + nome);
+                    System.out.println("Nenhum professor encontrado com o nome: " + nome);
                     return null;
                 });
     }
